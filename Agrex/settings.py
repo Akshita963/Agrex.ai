@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'NoteKeeper',
+    'NoteKeeper', # App name
     'rest_framework',
     'corsheaders',
 ]
