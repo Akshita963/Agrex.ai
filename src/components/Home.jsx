@@ -11,14 +11,17 @@ class Home extends Component {
     notes: [],
   };
 
+    // componentDidMount() executes after the render() at first execution. 
+
     componentDidMount() {
       this.resetState();
     }
 
     getNotes = () => {
-      agent.Notes.allNotes().then(res => this.setState({ notes: res.data }));
+      agent.Notes.allNotes().then(res => this.setState({ notes: res.data })); 
+      // Api call for getting all notes
     };
-
+    
     resetState = () => {
       this.getNotes();
     };

@@ -18,10 +18,10 @@ class NoteKeeperList extends Component {
 
     
   render() {
-    // const notes = this.props.notekeeper;
     const {notes} = this.state;
 
     return (
+      // table will render on home screen with classnames written in './DescriptionPreview.css' file.
       <table class="table">
         <thead>
           <tr className="text-center" >
@@ -31,18 +31,22 @@ class NoteKeeperList extends Component {
           </tr>
         </thead>
         <tbody>
-          {!notes || notes.length <= 0 ? (
+          {!notes || notes.length <= 0 ? ( // if no notes are there then it will display a message.
             <tr>
               <td colSpan="3" align="center">
                 <b>No Notes Available</b>
               </td>
             </tr>
           ) : (
-            notes.map(note => (
+            // map will run a loop to display whole notes in our table.
+            // text overflow class will maintain our css as it will be converted to ellipses if overflow occur.
+            // newNoteKeeperModal will correspond to edit button as create and pk is passed false as prop.
+            //ConfirmRemovalModal will correspond to delete button as pk is passed as prop.
+            notes.map(note => (   
               <tr align="center" key={note.id}>
                 <td>{note.title}</td>
-                <td class="cell-4">
-                <span class="text-overflow">{note.description}</span></td>
+                <td class="cell-4"> 
+                <span class="text-overflow">{note.description}</span></td> 
                 <td>
                   <NewNoteKeeperModal
                     pk = {note.id}

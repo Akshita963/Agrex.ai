@@ -18,37 +18,38 @@ class NewNoteKeeperForm extends React.Component {
 
   onChange = e => {
     if(e.target.name =="title" ){
+//checking the length of title value to be between 0 and 50 because we have implemented this condition in BE.
       if(e.target.value.length >=0 && e.target.value.length <= 50){
         this.setState({ [e.target.name]: e.target.value });
       }
       else{
+        //  alert message will be display.
         alert(" Title value should be between 0 and 50")
       }
     }
     else{
+      // here we are setting the state value corresponding to their name.
       this.setState({ [e.target.name]: e.target.value });
     }
     
   };
-
+// it will create new note.
   createNoteKeeper = () => {
     agent.Notes.createNote(this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
     });
-    window.location.reload(true)
+    window.location.reload(true) // it will reload the window.
   };
-
+  
+//it will update the existing note.
   editNoteKeeper = pk => {
-    console.log(typeof(pk))
     let list = {'title':this.props.note.title, 'description':this.props.note.description}
-    console.log(list)
     agent.Notes.updateNote(this.props.pk,list).then(() => {
       // this.props.resetState();
       // this.props.toggle();
     }
     );
-    // window.location.reload(true)
   };
 
   defaultIfEmpty = value => {
@@ -56,7 +57,11 @@ class NewNoteKeeperForm extends React.Component {
   };
   render() {
     return (
-      <Form >
+      // Form will open with the fields title, description and submit button and all fields are required fields.
+      // Submit button will call function as : when we have filled data already in form that is the 
+      // form is prefilled then we call editNoteKeeper function with pk otherwise createNoteKeeper function will call.
+
+      <Form > 
         <FormGroup>
           <Label for="name">Title:</Label>
           <Input
@@ -64,7 +69,7 @@ class NewNoteKeeperForm extends React.Component {
             type="text"
             name="title"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.title)}
+            value={this.defaultIfEmpty(this.state.title)} // this will keep our form prefilled when we click on edit button.
           />
         </FormGroup>
         <FormGroup>
@@ -74,9 +79,9 @@ class NewNoteKeeperForm extends React.Component {
             type="textarea"
             name="description"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.description)}
+            value={this.defaultIfEmpty(this.state.description)} // this will keep our form prefilled when we click on edit button.
           />
-        </FormGroup>
+        </FormGroup> 
         <Button color="success" onClick={this.props.note ? this.editNoteKeeper(this.props.pk) : this.createNoteKeeper}>Submit</Button>
       </Form>
     );

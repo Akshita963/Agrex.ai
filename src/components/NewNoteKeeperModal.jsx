@@ -14,9 +14,7 @@ class NewNoteKeeperModal extends Component {
 
   render() {
     
-  console.log(this.props.pk)
     const create = this.props.create;
-
     var title = "Edit Note";
     var button = (
       <Button color="success" onClick={this.toggle}>
@@ -37,14 +35,17 @@ class NewNoteKeeperModal extends Component {
       );
     }
 
+    //  Here if we are creating a new note then accordingly that title (Modal header) will be there but with same modal.
+
+    // modal body will be coming from NewNoteKeeperForm that is called below
+    
     return (
       <Fragment>
         {button}
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>{title}</ModalHeader>
-
           <ModalBody>
-            <NewNoteKeeperForm
+            <NewNoteKeeperForm // resetState, toggle, notes, pk are passed as prop from here to newNoteKeeperForm.
               resetState={this.props.resetState}
               toggle={this.toggle}
               note={this.props.notes}

@@ -2,8 +2,6 @@ import React, { Component, Fragment } from "react";
 import { Modal, ModalHeader, Button, ModalFooter } from "reactstrap";
 import agent from "../agent";
 
-import axios from "axios";
-
 class ConfirmRemovalModal extends Component {
   state = {
     modal: false
@@ -25,6 +23,8 @@ class ConfirmRemovalModal extends Component {
 
   render() {
     return (
+      // here firstly on clicking the delete button a modal will open to ask whether you want to delete the note or not.
+      // if yes then delete note will call with pk where we call our delete our api from agent.
       <Fragment>
         <Button color="danger" onClick={() => this.toggle()}>
           Delete

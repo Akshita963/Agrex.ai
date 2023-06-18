@@ -8,3 +8,5 @@ const Header = () =>
     )
 }
 export default Header
+
+// text center class is from bootstrap which will keep our header in center.
