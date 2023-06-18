@@ -22,7 +22,7 @@ class NoteKeeperList extends Component {
 
     return (
       // table will render on home screen with classnames written in './DescriptionPreview.css' file.
-      <table class="table">
+      <table className="table">
         <thead>
           <tr className="text-center" >
             <th >Title</th>
@@ -45,8 +45,8 @@ class NoteKeeperList extends Component {
             notes.map(note => (   
               <tr align="center" key={note.id}>
                 <td>{note.title}</td>
-                <td class="cell-4"> 
-                <span class="text-overflow">{note.description}</span></td> 
+                <td className="cell-4"> 
+                <span className="text-overflow">{note.description}</span></td> 
                 <td>
                   <NewNoteKeeperModal
                     pk = {note.id}

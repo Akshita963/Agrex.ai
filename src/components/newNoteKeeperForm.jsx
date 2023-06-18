@@ -5,8 +5,8 @@ import agent from "../agent";
 
 class NewNoteKeeperForm extends React.Component {
   state = {
-    title: "",
-    description :""
+    title: this.props.title,
+    description :this.props.description
 }
 
   componentDidMount() {
@@ -44,12 +44,10 @@ class NewNoteKeeperForm extends React.Component {
   
 //it will update the existing note.
   editNoteKeeper = pk => {
-    let list = {'title':this.props.note.title, 'description':this.props.note.description}
-    agent.Notes.updateNote(this.props.pk,list).then(() => {
-      // this.props.resetState();
-      // this.props.toggle();
+    let list = {'title':this.state.title, 'description':this.state.description}
+    if(this.state.title || this.state.description){
+      agent.Notes.updateNote(pk,this.state)
     }
-    );
   };
 
   defaultIfEmpty = value => {
