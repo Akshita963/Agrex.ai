@@ -39,3 +39,5 @@ Steps:
 3. python manage.py migrate              //creating table in specified db based on model. 
 
 4. python manage.py runserver                  // to run the app on local server. 
+
+My Branches for FE and BE are Notekeeper_FE and Notekeeper_BE respectively.
