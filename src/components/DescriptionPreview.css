@@ -1,0 +1,17 @@
+.text-overflow {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .text-overflow:hover {
+    overflow: visible;
+  }
+.cell-4 {
+    width: 200px;
+}
+.table {
+    table-layout: fixed;
+    width:400px
+    
+  }
