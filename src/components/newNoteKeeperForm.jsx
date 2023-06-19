@@ -44,7 +44,6 @@ class NewNoteKeeperForm extends React.Component {
   
 //it will update the existing note.
   editNoteKeeper = pk => {
-    let list = {'title':this.state.title, 'description':this.state.description}
     if(this.state.title || this.state.description){
       agent.Notes.updateNote(pk,this.state)
     }
